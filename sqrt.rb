@@ -1,29 +1,16 @@
-def squareroot(n)
-
-	guess=n.to_i/2.0
-	diff=0.000000001
-	stop=false
+def squareroot(n, diff)
+	guess=n/2.0
 	
-	while !stop
-		if (((guess*guess)-n)>diff)
-		refine(guess, n)
-	   else
-	   	stop=true
-	   end
+	while(((guess*guess)-n)>diff)
+		guess = refine(guess, n)   
 	end
 
 	puts guess
 end
 
 def refine(guess, n)
-	guess=0.5*(guess+(n/guess))
-	puts guess
-	
+	(guess+(n/guess))/2
 end
 
+squareroot(16, 0.0000001)
 
-
-
-puts" Enter a number"
-x=gets.chomp().to_i
-squareroot(x)
